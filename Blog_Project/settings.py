@@ -26,9 +26,9 @@ MEDIA_DIR = BASE_DIR/'media'
 SECRET_KEY = 'dhc=!#@!n3gh#@7)0sn0vmu=h3%4)mnu^8iwh!j=ci-^l&z^gu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-blog05.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,9 +126,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR/'staticfiles'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
-#Media
+# Media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
